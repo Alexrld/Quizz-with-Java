@@ -10,7 +10,7 @@ import java.util.List;
 public class Date_Validator implements Validator {
     private static final String ERROR_MESSAGE = "The date format is invalid, it should be the format dd/MM/yyyy";
     @Override
-    public boolean validate(String value, String conditionValue, List<String> errors) {
+    public boolean validate(String value, int conditionValue, List<String> errors) {
         try{
             Date parsedDate = DateConfiguration.FORMATTER.parse(value);
             return true;

@@ -18,4 +18,8 @@ public class myInputReader {
         if(option.length() > 1) return '0';
         return option.charAt(0);
     }
+
+    public static int readInt(){
+        return Integer.parseInt(readLine());
+    }
 }

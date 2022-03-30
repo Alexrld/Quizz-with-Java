@@ -12,6 +12,7 @@ import java.util.Set;
 public class QuestionInputHandler {
 
     private final List<String> errors = new ArrayList<>();
+    public static int conditionValue;
 
     public Set<String> askQuestion(Question question){
         System.out.println("Question: " + question.getTitle());
@@ -40,15 +41,14 @@ public class QuestionInputHandler {
         List<ValidatorType> validatorTypes = question.getValidations();
         for(ValidatorType validatorType : validatorTypes){
             switch (validatorType){
+                //case DATE:
                 case REQUIRED:
-                case DATE:
                 case UPPERCASE:
-                    return validatorType.getValidator().validate(value, "", errors);
+                    return validatorType.getValidator().validate(value, 0, errors);
                 case MIN:
-                    return validatorType.getValidator().validate(value, "5", errors);
                 case MIN_LENGTH:
                 case MAX_LENGTH:
-                    return (validatorType.getValidator().validate(value, "length", errors));
+                    return (validatorType.getValidator().validate(value, conditionValue, errors));
                 default:
                     break;
             }
